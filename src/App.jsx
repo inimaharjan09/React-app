@@ -1,13 +1,12 @@
 import React from 'react'
-import { createBrowserRouter, RouterProvider } from 'react-router';
-import Home from './pages/home/Home';
-import About from './pages/about/About';
-import Contact from './pages/contact/Contact';
-import RootLayout from './components/RootLayout';
-import NotFound from './pages/NotFound';
+import { createBrowserRouter } from 'react-router'
+import { RouterProvider } from 'react-router-dom';
+import Home from './pages/home/Home.jsx';
+import About from './pages/about/About.jsx';
 
-//js in component/---props/--routing
-//how react render component/ hooks
+
+import RootLayout from './components/RootLayout.jsx';
+import Contact1 from './pages/contact/Contact1.jsx';
 
 
 export default function App() {
@@ -21,7 +20,6 @@ export default function App() {
         {
           index: true,
           element: <Home />,
-
         },
         {
           path: 'about',
@@ -29,18 +27,12 @@ export default function App() {
         },
         {
           path: 'contact',
-          element: <Contact />
+          element: <Contact1/>
         },
 
       ]
     },
-
-    {
-      path: '*',
-      element: <NotFound />
-
-    }
-
+  
 
 
   ]);
@@ -49,5 +41,3 @@ export default function App() {
 
   return <RouterProvider router={router} />
 }
-
-
