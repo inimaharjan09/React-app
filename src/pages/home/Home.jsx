@@ -1,86 +1,106 @@
-// import { useState } from "react";
+// import React from 'react'
+// import { useRef } from 'react';
+// import { useState } from 'react';
 
-// export default function CounterApp() {
-//   const [count, setCount] = useState(1);
+// export default function Home() {
 
-//   const increment = () => setCount(Count => Count + 1);
-//   const decrement = () => setCount(Count => Count - 1);
-//   const reset = () => setCount(0);
-//   console.log(count);
+//   // const handleClick =()=>{
+//   //   const h2Element = document.querySelector('h2');
+//   //   h2Element.style.color='blue';
+//   // }
+
+//   const [some, setSome]= useState();
+//   const ref = useRef(0);
+//   console.log(ref);
+  
+//   const increment =()=>{
+//     ref.current++;
+//     console.log(ref);
+
+//     setSome((prev)=>{
+//       ref.current=prev;
+//       return prev+1;
+//     });
+//     console.log(ref.current);
+//   }
+//   console.log('render');
 
 //   return (
-//     <div className="flex flex-col items-center p-6 bg-gray-100 min-h-screen">
-//       <div className="text-3xl font-semibold mb-4">Count: {count}</div>
-//       <div className="flex gap-2 mb-4">
-//         <button
-//           onClick={decrement}
-//           className="px-4 py-2 bg-red-500 text-white disabled:bg-gray-400"
-          
-//         >
-//           -
-//         </button>
-//         <button
-//           onClick={reset}
-//           className="px-4 py-2 bg-gray-500 text-white"
-//         >
-//           Reset
-//         </button>
-//         <button
-//           onClick={increment}
-//           className="px-4 py-2 bg-green-500 text-white"
-//         >
-//           +
-//         </button>
-//       </div>
+//     <div>
+//       {/* <input type="text" placeholder='focus' />
+//       <h2>Hello World</h2>
+//       <button onClick={handleClick}>Click to Change</button> */}
       
+//       <h1>{ref.current}</h1>
+//       <button onClick={increment}>Click to Increment</button>
+//     </div>
+//   )
+// }
+
+
+
+
+// import React, { useRef, useState } from 'react';
+
+// export default function Home() {
+//   const [some, setSome] = useState(0);
+//   const ref = useRef(0);
+
+//   console.log(ref);
+
+//   const increment = () => {
+//     ref.current++; 
+//     console.log(ref.current);
+
+//     setSome((prev) => prev + 1); 
+//   };
+
+//   console.log('render');
+
+//   return (
+//     <div>
+//       <h1>{some}</h1>
+//       <button onClick={increment}>Click to Increment</button>
 //     </div>
 //   );
 // }
 
-import { faker } from '@faker-js/faker';
-import React from 'react'
-import { useState } from 'react'
+
+
+import React, { useRef } from 'react';
 
 export default function Home() {
+  const inputRef = useRef();
+  const videoRef = useRef();
 
-  const [users, setUsers] = useState([]);
-
-  // const [show, setShow] = useState(false);
-  // const handleShow =()=>{
-  //   setShow((prev)=>!prev);
-  // }
-
-  const handleUser=()=>{
-
-    const user={
-      id:faker.string.ulid(),
-      image: faker.image.avatarGitHub(),
-      username: faker.internet.displayName(),
-      email: faker.internet.email(),
-      reaction: faker.internet.emoji()
-    };
-    setUsers((prev)=>[...prev, user]);
-    
-  }
-  // console.log(users);
+  const handlePlayVideo = () => {
+    if (videoRef.current) {
+      videoRef.current.play();
+    }
+  };
 
   return (
-    <div className='p-5'>
-
-      {/* <h1>{`${show}`}</h1>
-      {show && <h2>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Facere, totam.</h2>} */}
-
-      <button onClick={handleUser} className='bg-black text-white px-5 py-1 cursor-pointer'>Add User</button>
-      {users.map((user)=>{
-        return <div key={user.id} className='space-y-2 flex gap-7 items-start'>
-          <div>
-            <h2>{user.username}</h2>
-            <img src={user.image} className='h-[200px]' alt="" />
-          </div>
-
-        </div>
-      })}
-      
+    <div>
+      <input type="text" ref={inputRef} placeholder="hello world" />
+      <button onClick={handlePlayVideo}>Play video</button>
+      <video ref={videoRef} className="h-[200px]" src="https://flutter.github.io/assets-for-api-docs/assets/videos/butterfly.mp4"></video>
     </div>
-  )
+  );
 }
+
+
+// import React from 'react'
+
+// export default function Home() {
+//   const func1=async()=>{
+//     console.log(func1)
+//   }
+
+//   return (
+//     <div>
+//       <button></button>
+      
+//     </div>
+//   )
+// }
+
