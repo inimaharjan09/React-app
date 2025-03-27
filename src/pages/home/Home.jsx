@@ -67,40 +67,42 @@
 
 
 
-import React, { useRef } from 'react';
-
-export default function Home() {
-  const inputRef = useRef();
-  const videoRef = useRef();
-
-  const handlePlayVideo = () => {
-    if (videoRef.current) {
-      videoRef.current.play();
-    }
-  };
-
-  return (
-    <div>
-      <input type="text" ref={inputRef} placeholder="hello world" />
-      <button onClick={handlePlayVideo}>Play video</button>
-      <video ref={videoRef} className="h-[200px]" src="https://flutter.github.io/assets-for-api-docs/assets/videos/butterfly.mp4"></video>
-    </div>
-  );
-}
-
-
-// import React from 'react'
+// import React, { useRef } from 'react';
 
 // export default function Home() {
-//   const func1=async()=>{
-//     console.log(func1)
-//   }
+//   const inputRef = useRef();
+//   const videoRef = useRef();
+
+//   const handlePlayVideo = () => {
+//     if (videoRef.current) {
+//       videoRef.current.play();
+//     }
+//   };
 
 //   return (
 //     <div>
-//       <button></button>
-      
+//       <input type="text" ref={inputRef} placeholder="hello world" />
+//       <button onClick={handlePlayVideo}>Play video</button>
+//       <video ref={videoRef} className="h-[200px]" src="https://flutter.github.io/assets-for-api-docs/assets/videos/butterfly.mp4"></video>
 //     </div>
-//   )
+//   );
 // }
+
+
+import React from 'react'
+
+export default function Home() {
+  
+  setTimeout(()=>{
+    console.log('hello');
+  },1000)
+  console.log('hi world');
+
+
+  return (
+    <div>
+      
+    </div>
+  )
+}
 
